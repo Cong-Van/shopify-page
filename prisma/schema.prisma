@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:dev.sqlite"
+}
+
+model Session {
+  id          String    @id
+  shop        String
+  state       String
+  isOnline    Boolean   @default(false)
+  scope       String?
+  expires     DateTime?
+  accessToken String
+  userId      BigInt?
+}
+
+model QRCode {
+  id               Int      @id @default(autoincrement())
+  title            String
+  shop             String
+  productId        String
+  productHandle    String
+  productVariantId String
+  destination      String
+  scans            Int      @default(0)
+  createdAt        DateTime @default(now())
+}
+
+model Page {
+  id               Int      @id @default(autoincrement())
+  shop             String
+  title            String
+  bodyHtml         String
+  pageTitle        String
+  description      String
+  handle           String
+  publishedAt      String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now())
+}
+
+model Tab {
+  id               Int      @id @default(autoincrement())
+  shop             String
+  content          String
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @default(now())
+}

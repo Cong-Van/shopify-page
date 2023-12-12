@@ -1,0 +1,28 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "My-first-app"
+client_id = "12c4918a90cfa325242055be3eecd268"
+application_url = "https://jvc-recover-offering-anthropology.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://jvc-recover-offering-anthropology.trycloudflare.com/auth/callback",
+  "https://jvc-recover-offering-anthropology.trycloudflare.com/auth/shopify/callback",
+  "https://jvc-recover-offering-anthropology.trycloudflare.com/api/auth/callback",
+  "https://jvc-recover-offering-anthropology.trycloudflare.com/.shopify/graphiql/auth/callback"
+]
+
+[webhooks]
+api_version = "2023-10"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "van123-store.myshopify.com"
